@@ -10,15 +10,17 @@ const db = [
 
 // When GET request comes in,
 // send back all the messages.
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.json(db);
 });
 
 // When POST request comes in,
 // add message to array of messages.
-app.post('/', (req, res) => {
+app.post('/api', (req, res) => {
     // what do we do here?
+    console.log(req.body);
     console.log(req.body.message);
+    db.push(req.body.message);
     res.json({
         'message': req.body.message
     })
